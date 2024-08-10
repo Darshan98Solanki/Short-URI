@@ -1,0 +1,16 @@
+.short-url{
+    font-weight: bolder !important;
+    font-size: 60px;
+    border-radius: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+            drop-shadow(0 6px 20px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+.short-url:hover {
+    filter: drop-shadow(0 8px 16px rgba(50, 83, 121, 0.3))
+            drop-shadow(0 12px 40px rgba(41, 20, 178, 0.2));
+}
+.bold{
+    font-size: 40px !important;
+    font-family:cursive;
+}
