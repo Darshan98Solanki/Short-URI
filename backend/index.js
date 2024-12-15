@@ -78,13 +78,6 @@ app.post('/generateURL',(req, res) => {
     return
 })
 
-app.get('/', (req, res)=>{
-    const query = "SELECT * from urls"
-    conn.query(query, (err, result) => {
-        res.json({ result})
-    }) 
-})
-
 app.get('/:url', (req, res) => {
     
     const shortURL = "https://short-uri-two.vercel.app/"+req.params.url
