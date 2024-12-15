@@ -25,6 +25,7 @@ function generateURL() {
     conn.query(query, [shortURL], async (err, res) => {
 
         if (err) {
+            console.log(err)
             res.status(err.code).json({ message: "Some error occurred" })
             return
         }
