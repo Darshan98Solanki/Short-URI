@@ -18,7 +18,7 @@ function generateURL() {
     while (shortURL.length < 6) {
         shortURL += allChars[Math.floor(Math.random() * allChars.length)]
     }
-    shortURL = "localhost:3000/short-url/" + shortURL
+    shortURL = "https://short-uri-two.vercel.app/" + shortURL
 
     const query = "SELECT COUNT(?) FROM urls"
 

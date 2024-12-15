@@ -13,7 +13,7 @@ export default function CustomeCard() {
 
   function handleURL(){
     const url = originalUrl.current.value
-    axios.post('http://localhost:3000/generateURL',{
+    axios.post('https://short-uri-two.vercel.app/generateURL',{
       url
     }).then((response)=>{
       const data = response.data.shortenURL
