@@ -51,6 +51,21 @@ function formatDate(date = new Date()) {
     return [year, month, day].join('-');
 }
 
+// close connection
+function closeConnection(conn) {
+    process.on('SIGINT', () => {
+        conn.end((err) => {
+            if (err) {
+                console.error('Error closing connection pool:', err.stack);
+            } else {
+                console.log('Connection pool closed');
+            }
+            process.exit();
+        });
+    });
+}
+
+
 // Routes start
 app.post('/generateURL',(req, res) => {
 
@@ -70,11 +85,12 @@ app.post('/generateURL',(req, res) => {
     conn.query(query, [shortURL, validURL,0 ,date], (err, res) => {
         if (err) {
             res.status(404).json({ message: "Some error occurred" })
-            return
         }
+            return
     })
 
     res.json({ shortenURL: shortURL })
+    closeConnection(conn)
     return
 })
 
@@ -98,6 +114,7 @@ app.get('/:url', (req, res) => {
 
 
         res.redirect(result[0].originalURL)
+        closeConnection(conn)
         return
     })    
 })
