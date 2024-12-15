@@ -85,7 +85,7 @@ app.get('/', (req, res)=>{
     }) 
 })
 
-app.get('/short-url/:url', (req, res) => {
+app.get('/:url', (req, res) => {
     
     const shortURL = "https://short-uri-two.vercel.app/"+req.params.url
     const query = "SELECT originalURL from urls WHERE shortenURL=?"
