@@ -79,7 +79,7 @@ app.post('/generateURL',(req, res) => {
 })
 
 app.get('/', (req, res)=>{
-    const query = "SELECT originalURL from urls"
+    const query = "SELECT * from urls"
     conn.query(query, (err, result) => {
         res.json({ result})
     }) 
