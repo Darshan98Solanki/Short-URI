@@ -3,13 +3,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import "../App.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import axios from "axios"
 
 export default function CustomeCard() {
 
   const originalUrl = useRef()
   const shortUrl = useRef()
+  const [buttonDisable, setButton] = useState(true)
 
   function handleURL(){
     const url = originalUrl.current.value
@@ -18,6 +19,7 @@ export default function CustomeCard() {
     }).then((response)=>{
       const data = response.data.shortenURL
       shortUrl.current.value = data
+      setButton(true)
       toast.success("Short Url generated")
     }).catch((error)=>{
       toast.error(error.response.data.message)
@@ -58,7 +60,7 @@ export default function CustomeCard() {
             <Card.Body>
               <InputGroup className="my-4">
                 <Form.Control ref={shortUrl}/>
-                <Button variant="primary" id="button-addon2" onClick={copyUrl}> Copy URL </Button>
+                <Button variant="primary" id="button-addon2" disabled={buttonDisable} onClick={copyUrl}> Copy URL </Button>
               </InputGroup>
             </Card.Body>
           </Card>
