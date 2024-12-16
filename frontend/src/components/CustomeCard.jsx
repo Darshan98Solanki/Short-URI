@@ -19,7 +19,7 @@ export default function CustomeCard() {
     }).then((response)=>{
       const data = response.data.shortenURL
       shortUrl.current.value = data
-      setButton(true)
+      setButton(false)
       toast.success("Short Url generated")
     }).catch((error)=>{
       toast.error(error.response.data.message)
