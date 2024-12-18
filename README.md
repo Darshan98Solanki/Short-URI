@@ -1,6 +1,6 @@
 ---
 
-# Short URI Project
+# Short URI Project - <a href="https://short-uri-q5yh.vercel.app" target="_blank">Live</a>
 
 ## Project Overview
 This project is a full-stack application designed to shorten URLs, with a backend built using Node.js and a frontend developed using modern web technologies. The backend handles the logic for URL shortening, while the frontend offers a clean, user-friendly interface.
